@@ -936,7 +936,7 @@ if (reverse) {
         if (Player.openInventory().getContainerTitle() != SF_TITLE) { return }
         if (event.mode == 6) { return }
 
-        if (event.slot == 16 && getItemIdBySlot(0)=="slimefun:_UI_BACK") {
+        if (event.slot == 15 && getItemIdBySlot(0)=="slimefun:_UI_BACK") {
             current_item_id = getItemIdBySlot(16)
 
             // Chat.log(current_item_id)
