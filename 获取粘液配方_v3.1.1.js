@@ -91,17 +91,39 @@ function getItemIdBySlot(Index) {
     }    
     else {
         if (Nbt.has("PublicBukkitValues")) {
-            let PublicBukkitValues = Nbt.get("PublicBukkitValues")
-            if(PublicBukkitValues.has("slimefun:slimefun_item")) {
-                return "slimefun:"+PublicBukkitValues.get("slimefun:slimefun_item").asString()
-            }
-            else{
-                return PublicBukkitValues.asString()
-            }
-        }
-        else{
-            return Item.getItemId() 
-        }
+			let PublicBukkitValues = Nbt.get("PublicBukkitValues")
+			if (PublicBukkitValues.has("slimefun:slimefun_item")) {
+				return "slimefun:" + PublicBukkitValues.get("slimefun:slimefun_item").asString()
+			}
+			else {
+				return PublicBukkitValues.asString()
+			}
+		}
+		if (Nbt.has("minecraft:custom_data")) {
+			let customData = Nbt.get("minecraft:custom_data")
+			if (customData.has("PublicBukkitValues")) {
+				let PublicBukkitValues = customData.get("PublicBukkitValues")
+				if (PublicBukkitValues.has("slimefun:slimefun_item")) {
+					return "slimefun:" + PublicBukkitValues.get("slimefun:slimefun_item").asString()
+				}
+				else {
+					return PublicBukkitValues.asString()
+				}
+			}
+		}
+		for (let key in Nbt) {
+			let child = Nbt.get(key)
+			if (child != null && child.has("PublicBukkitValues")) {
+				let PublicBukkitValues = child.get("PublicBukkitValues")
+				if (PublicBukkitValues.has("slimefun:slimefun_item")) {
+					return "slimefun:" + PublicBukkitValues.get("slimefun:slimefun_item").asString()
+				}
+				else {
+					return PublicBukkitValues.asString()
+				}
+			}
+		}
+		return Item.getItemId()
     }
 }
 
