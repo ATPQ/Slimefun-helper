@@ -246,9 +246,10 @@ else{
         do {
             for (let slot = 9; slot < 45; slot++) {
                 item_id= getItemIdBySlot(slot)
-                // Chat.log(item_id)
+                
                 item_name = getItemNameBySlot(slot)
                 if (item_id == "minecraft:air") {
+					Chat.log("此页读取完成")
                     break
                 }
                 if (item_id == 'slimefun:_UI_NO_PERMISSION') {
@@ -259,7 +260,11 @@ else{
                     Chat.log("未解锁："+item_name)
                     continue
                 }
-                
+				if (item_id == 'slimefun:_UI_BACKGROUND') {
+                    Chat.log("跳过占位背景板")
+                    continue
+                }
+                // Chat.log(item_id)
                 Chat.log("读取："+item_name)
                 enter_into_slot_menu(slot)
                 info = getItemInfo()
