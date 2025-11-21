@@ -935,7 +935,9 @@ if (reverse) {
         
         if (Player.openInventory().getContainerTitle() != SF_TITLE) { return }
         if (event.mode == 6) { return }
-
+		if (event.slot == 16 && getItemIdBySlot(0)=="slimefun:_UI_BACK") {
+			Chat.log("添加合成按钮转移到该格左侧")
+		}
         if (event.slot == 15 && getItemIdBySlot(0)=="slimefun:_UI_BACK") {
             current_item_id = getItemIdBySlot(16)
 
