@@ -261,7 +261,7 @@ else{
                     continue
                 }
 				if (item_id == 'slimefun:_UI_BACKGROUND') {
-                    Chat.log("跳过占位背景板")
+                    //Chat.log("跳过占位背景板")
                     continue
                 }
                 // Chat.log(item_id)
