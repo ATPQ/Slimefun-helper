@@ -120,7 +120,7 @@ function findMutiBlockStructure() {
 
 function wait_next_container() {
     tick = 0
-    MAXTICKS = 10
+    MAXTICKS = 100
     while(Player.openInventory().getCurrentSyncId() == LastSyncId || Player.openInventory().getCurrentSyncId() == 0){
         // 等待打开容器 
         Client.waitTick(1)
